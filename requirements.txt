@@ -1,0 +1,7 @@
+# Spot SDK dependencies
+bosdyn-client>=5.0.0
+bosdyn-api>=5.0.0
+bosdyn-core>=5.0.0
+
+# Optional: Strands integration
+# strands-agents

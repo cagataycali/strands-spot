@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "strands-spot"
+version = "0.1.0"
+description = "Generic tool for Boston Dynamics Spot SDK for Strands Agents"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Cagatay Cali", email = "cagataycali@icloud.com"}
+]
+keywords = ["spot", "boston-dynamics", "robotics", "strands", "agents", "sdk"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "strands-agents",
+    "bosdyn-client>=5.0.0",
+    "bosdyn-api>=5.0.0",
+    "bosdyn-core>=5.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/cagataycali/strands-spot"
+Documentation = "https://github.com/cagataycali/strands-spot/blob/main/README.md"
+Repository = "https://github.com/cagataycali/strands-spot"
+Issues = "https://github.com/cagataycali/strands-spot/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["strands_spot*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=tools --cov-report=term-missing"
